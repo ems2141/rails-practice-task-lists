@@ -5,7 +5,15 @@
   </p>
 
   <p>
-  <%= f.select :year, [['January', 'january'], ['February', 'february'], ['March', 'march']] %>
+  <%= f.select :year, [['2014', '2014'], ['2015', '2015'], ['2016', '2016']] %>
+  </p>
+
+  <p>
+    <%= f.select :month, [['January'], ['February'], ['March']] %>
+  </p>
+
+  <p>
+    <%= f.select :day, [['1', '1'], ['2', '2'], ['3', '3']] %>
   </p>
 
   <%= f.submit 'Create Task' %>

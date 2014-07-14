@@ -10,6 +10,7 @@
         <% if task.task_list_id == task_list.id %>
           <li>
             <%= task.description %>
+            Due date: <%= task.month %> <%= task.day %>, <%= task.year %>
           </li>
         <% end %>
       <% end %>

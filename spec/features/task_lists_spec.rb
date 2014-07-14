@@ -33,10 +33,13 @@ feature 'Task lists' do
     end
 
     fill_in 'task[description]', with: 'do laundry'
-    select('January', :from => 'task[year]')
+    select('2015', :from => 'task[year]')
+    select('January', :from => 'task[month]')
+    select('3', :from => 'task[day]')
 
     click_on 'Create Task'
 
     expect(page).to have_content 'do laundry'
+    expect(page).to have_content 'Due date: January 3, 2015'
   end
 end
