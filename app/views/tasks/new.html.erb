@@ -1,11 +1,19 @@
-<h1>Enter a New Task</h1>
+<h1>Add a task</h1>
 
 <%= form_for [@task_list, @task] do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.label :due_date %>
-  <%= f.date_select :due_date %>
-
-  <%= f.submit %>
+  <p>
+    <%= f.label :description %>
+  </p>
+  <p>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :due_date %>
+  </p>
+  <p>
+    <%= f.date_select :due_date %>
+  </p>
+  <p>
+    <%= f.submit class: "form-button" %>
+  </p>
 <% end %>
