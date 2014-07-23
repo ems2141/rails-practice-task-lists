@@ -9,12 +9,17 @@
     <% if task_list.tasks.any? %>
       <ul>
         <% task_list.tasks.each do |task| %>
+          <% if task.completed == false %>
           <li class="tasks">
             <%= task.description %>
+
+            <%= link_to 'Completed', complete_task_list_task_path(task_list, task), method: :post %>
+
             <span class="due-date">
             <%= distance_of_time_in_words(Time.now, task.due_date) %>
               </span>
           </li>
+            <% end %>
         <% end %>
       </ul>
     <% end %>

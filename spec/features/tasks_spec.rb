@@ -20,9 +20,11 @@ feature 'Tasks' do
     select two_days_from_now.strftime("%-d"), from: "task_due_date_3i"
     click_on "Create Task"
 
-    save_and_open_page
-    expect(page).to have_content("Do laundry")
-    expect(page).to have_content("Task was created successfully!")
-    expect(page).to have_content("2 days")
+    # expect(page).to have_content("Do laundry")
+    # expect(page).to have_content("Task was created successfully!")
+    # expect(page).to have_content("2 days")
+
+    click_on "Completed"
+    expect(page).to have_no_content "Do laundry"
   end
 end

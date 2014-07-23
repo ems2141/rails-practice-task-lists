@@ -11,4 +11,13 @@ class TasksController < ApplicationController
     @task.save
     redirect_to root_path, notice: 'Task was created successfully!'
   end
+
+  def complete
+    @task_list = TaskList.find(params[:task_list_id])
+    @task = @task_list.tasks.find(params[:id])
+    @task.completed = true
+    @task.save!
+
+    redirect_to root_path
+  end
 end
