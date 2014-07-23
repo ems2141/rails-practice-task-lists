@@ -1,6 +1,10 @@
 <h1>Add a task</h1>
 
 <%= form_for [@task_list, @task] do |f| %>
+
+  <% if f.object.errors.any? %>
+    Your task could not be created
+  <% end %>
   <p>
     <%= f.label :description %>
   </p>

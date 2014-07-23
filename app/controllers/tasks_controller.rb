@@ -8,8 +8,11 @@ class TasksController < ApplicationController
   def create
     @task_list = TaskList.find(params[:task_list_id])
     @task = @task_list.tasks.new(params.require(:task).permit(:description, :due_date))
-    @task.save
-    redirect_to root_path, notice: 'Task was created successfully!'
+    if @task.save
+      redirect_to root_path, notice: 'Task was created successfully!'
+    else
+      render :new
+    end
   end
 
   def complete
